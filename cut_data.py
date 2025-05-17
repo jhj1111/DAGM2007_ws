@@ -8,12 +8,15 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_PATH = os.path.dirname(CURRENT_DIR)
 
 def parse_labels_to_csv(class_num, extension='txt'):
+    label_name = 'labels.txt'
     if extension=='txt':
-        label_path = os.path.join(BASE_PATH, 'DAGM_dataset', f"Class{class_num}_def", "labels.txt")
+        label_path = os.path.join(CURRENT_DIR, 'DAGM_dataset', f"Class{class_num}_def", "labels.txt")
     elif extension=='csv':
-        label_path = os.path.join(BASE_PATH, 'DAGM_dataset', )
+        label_name = f'def_{class_num}.csv'
+        label_path = os.path.join(CURRENT_DIR, 'DAGM_dataset', f'def_{class_num}.csv')
+
     if not os.path.exists(label_path):
-        print(f"❌ Class{class_num}_def: def_{class_num}.csv 없음")
+        print(f"❌ Class{class_num}_def: {label_name} 없음")
         return
 
     with open(label_path, "r") as f:
@@ -22,18 +25,18 @@ def parse_labels_to_csv(class_num, extension='txt'):
     records = []
     for idx, line in enumerate(lines):
         parts = re.split(r"\s+", line.strip())
-        if len(parts) < 6:
+        if len(parts) > 7:
             print(f"⚠️ Class{class_num} line {idx + 1} → 파싱 실패: '{line.strip()}'")
             continue
         try:
-            x, y, angle, w, h = map(float, parts[1:6])
+            w, h, angle, x, y = map(float, parts[1:6])
         except ValueError:
             print(f"🚫 Class{class_num} line {idx + 1} → 숫자 변환 실패: '{parts}'")
             continue
 
         records.append(
             {
-                "filename": f"{idx:03d}.png",
+                "filename": f"{idx+1:03d}.png",
                 "class": class_num,
                 "label": 1,
                 "x": x,
@@ -46,11 +49,11 @@ def parse_labels_to_csv(class_num, extension='txt'):
 
     # 저장
     df = pd.DataFrame(records)
-    out_csv = os.path.join(BASE_PATH, f"def_{class_num}.csv")
+    out_csv = os.path.join(CURRENT_DIR, 'DAGM_dataset', f"def_{class_num}.csv")
     df.to_csv(out_csv, index=False)
     print(f"✅ Class{class_num} → 저장 완료: {out_csv}")
 
 
 # 실행: Class1_def ~ Class5_def
-for c in range(1, 6):
+for c in range(1, 7):
     parse_labels_to_csv(c)
