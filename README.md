@@ -34,7 +34,7 @@ DAGM2007/
 ├── add_zeros_2_filename.py     # 이미지 이름을 3자리로 일괄 변경
 └── cut_data.py                 # labels.txt → def_?.csv 변환 스크립트
 ```
-
+**파일 트리 준수**
 ---
 
 ## 해당 파일 기능
