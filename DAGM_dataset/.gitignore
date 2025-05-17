@@ -2,3 +2,4 @@
 .vscode
 *.zip
 practice_code/
+__pycache__
