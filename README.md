@@ -25,12 +25,12 @@ DAGM2007/
 │   ├── Class3_def/
 │   ├── Class4/
 │   ├── Class5/
-│   └── Class5_def/
-├── def_1.csv  # Class1 결합 위치 정보
-├── def_2.csv
-├── def_3.csv
-├── def_4.csv
-├── def_5.csv
+│   ├── Class5_def/
+│   ├── def_1.csv  # Class1 결합 위치 정보
+│   ├── def_2.csv
+│   ├── def_3.csv
+│   ├── def_4.csv
+│   ├── def_5.csv
 ├── add_zeros_2_filename.py     # 이미지 이름을 3자리로 일괄 변경
 └── cut_data.py                 # labels.txt → def_?.csv 변환 스크립트
 ```
