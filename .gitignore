@@ -2,6 +2,6 @@
 .vscode
 *.zip
 practice_code/
-__pycache__
+__pycache__/
 preprocess.ipynb
 simple_cnn.ipynb
