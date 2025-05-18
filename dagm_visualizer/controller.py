@@ -7,7 +7,7 @@ class Controller:
         self.dataset_manager = dataset_manager
         self.visualizer = visualizer
 
-    def show_image(self, class_idx=None, idx=None, defect=True, random_select=True):
+    def show_image(self, class_idx=None, idx=None, defect=False, random_select=False):
         """
         랜덤 혹은 특정 이미지를 시각화
         """
