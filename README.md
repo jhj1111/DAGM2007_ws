@@ -83,7 +83,7 @@ python main.py --class 1 --idx 23 --defect
 
 ## 참고 링크
 
-* [DAGM 2007 Dataset](https://hci.iwr.uni-heidelberg.de/content/dagm2007-dataset)
+* [DAGM 2007 Dataset](https://conferences.mpi-inf.mpg.de/dagm/2007/prizes.html)
 * OpenCV ellipse: [https://docs.opencv.org/4.x/dc/da5/tutorial\_py\_drawing\_functions.html](https://docs.opencv.org/4.x/dc/da5/tutorial_py_drawing_functions.html)
 
 ---
