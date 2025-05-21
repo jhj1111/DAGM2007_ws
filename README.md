@@ -41,7 +41,7 @@ DAGM2007/
 
 ### `add_zeros_2_filename.py`
 
-* `DAGM_dataset/Class*_def/*.png`의 이름을 `000.png ~ 149.png` 형식으로 일괄화
+* `DAGM_dataset/Class*_def/*.png`의 이름을 `001.png ~ 150.png` 형식으로 일괄화
 
 ### `cut_data.py`
 
@@ -61,6 +61,7 @@ pip install opencv-python pandas
 ## 실행 예시
 
 ```bash
+# bash
 # 랜덤 이미지 (정상/결합 선택)
 python main.py --random
 
@@ -70,6 +71,38 @@ python main.py --random --defect
 # 특정 건 표시
 python main.py --class 1 --idx 23 --defect
 ```
+```python
+# python
+# main.py
+class_idx = None        # DAGM2007 class
+idx = None              # idx.png
+defect = True           # 결함 이미지 선택(True: 불량 이미지만 출력, False: 정상/불량 랜덤 출력)
+random_select = None    # *.png 랜덤 선택
+
+# 랜덤 이미지 (정상/결합 선택)
+class_idx = None        
+idx = None              
+defect = False    
+random_select = True
+
+# 결합 이미지만 랜덤
+class_idx = None        
+idx = None              
+defect = True
+random_select = True
+
+# 특정 건 표시 ex) Class1_def/23.png
+class_idx = 1  
+idx = 23
+defect = True
+random_select = False
+```
+## 조작
+'q': 종료
+
+'s': 이미지 저장
+
+else: 다음 이미지(랜덤) 선택
 
 ---
 
