@@ -79,32 +79,19 @@ def generate_yoloseg_dataset(class_idx, csv_path, def_img_dir, normal_img_dir=No
 
     return output_dir
 
-# Class1~5에 대해 실행
-def_class_list = glob(os.path.join(DAGM_DATASET_DIR, 'Class?_def'))
-print(DAGM_DATASET_DIR)
-print(def_class_list)
-created_dirs = []
-for i in range(1, len(def_class_list)+1):
-    csv_path = os.path.join(DAGM_DATASET_DIR, f"def_{i}.csv")
-    def_img_dir = os.path.join(DAGM_DATASET_DIR, f"Class{i}_def")
-    normal_img_dir = os.path.join(DAGM_DATASET_DIR, f"Class{i}")
-    if os.path.exists(csv_path) and os.path.isdir(def_img_dir):
-        out_dir = generate_yoloseg_dataset(i, csv_path, def_img_dir, normal_img_dir)
-        created_dirs.append(out_dir)
+def main():
+    # Class1~5에 대해 실행
+    def_class_list = glob(os.path.join(DAGM_DATASET_DIR, 'Class?_def'))
+    print(DAGM_DATASET_DIR)
+    print(def_class_list)
+    created_dirs = []
+    for i in range(1, len(def_class_list)+1):
+        csv_path = os.path.join(DAGM_DATASET_DIR, f"def_{i}.csv")
+        def_img_dir = os.path.join(DAGM_DATASET_DIR, f"Class{i}_def")
+        normal_img_dir = os.path.join(DAGM_DATASET_DIR, f"Class{i}")
+        if os.path.exists(csv_path) and os.path.isdir(def_img_dir):
+            out_dir = generate_yoloseg_dataset(i, csv_path, def_img_dir, normal_img_dir)
+            created_dirs.append(out_dir)
 
-# 디렉토리 구조 출력
-def walk_directory_tree(base_path, max_depth=3):
-    tree = []
-    for root, dirs, files in os.walk(base_path):
-        rel_path = os.path.relpath(root, base_path)
-        depth = rel_path.count(os.sep)
-        if depth < max_depth:
-            indent = '│   ' * depth + '├── '
-            tree.append(f"{indent}{os.path.basename(root)}/")
-            for f in files:
-                if depth + 1 < max_depth:
-                    tree.append(f"{'│   ' * (depth + 1)}├── {f}")
-    return "\n".join(tree)
-
-# tree_output = walk_directory_tree(OUTPUT_BASE_DIR)
-# tree_output
+if __name__ == '__main__':
+    main()
