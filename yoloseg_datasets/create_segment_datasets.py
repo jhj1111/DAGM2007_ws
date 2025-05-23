@@ -59,9 +59,9 @@ def generate_yoloseg_dataset(class_idx, csv_path, def_img_dir, normal_img_dir=No
 
     for subset, items in subsets.items():
         for fname, poly in items:
-            src_path = os.path.join(def_img_dir if fname in df['filename'].values else normal_img_dir, fname)
-            dst_img_path = os.path.join(images_dir, subset, fname)
-            dst_lbl_path = os.path.join(labels_dir, subset, fname.replace(".png", ".txt"))
+            src_path = os.path.join(def_img_dir if poly else normal_img_dir, fname)
+            dst_img_path = os.path.join(images_dir, subset, 'def_'+fname if poly else fname)
+            dst_lbl_path = os.path.join(labels_dir, subset, 'def_'+fname.replace(".png", ".txt") if poly else fname.replace(".png", ".txt"))
             if os.path.exists(src_path):
                 shutil.copy(src_path, dst_img_path)
                 with open(dst_lbl_path, "w") as f:
@@ -77,13 +77,12 @@ def generate_yoloseg_dataset(class_idx, csv_path, def_img_dir, normal_img_dir=No
             'names': {0: 'defect'}
         }, f)
 
+
     return output_dir
 
 def main():
     # Class1~5에 대해 실행
     def_class_list = glob(os.path.join(DAGM_DATASET_DIR, 'Class?_def'))
-    print(DAGM_DATASET_DIR)
-    print(def_class_list)
     created_dirs = []
     for i in range(1, len(def_class_list)+1):
         csv_path = os.path.join(DAGM_DATASET_DIR, f"def_{i}.csv")
