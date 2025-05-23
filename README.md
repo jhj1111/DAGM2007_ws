@@ -6,6 +6,8 @@
 
 > DAGM2007 데이터셋 기반으로 클래스/결합 유무/결합 위치를 시각화하는 Python 도구
 
+>[README](.\dagm_visualizer/README.md)
+
 # [DAGM2007 YOLO-segment Datasets](.\yoloseg_datasets/)
 
 > DAGM2007 YOLO-segment 학습용 데이터셋 저장소
