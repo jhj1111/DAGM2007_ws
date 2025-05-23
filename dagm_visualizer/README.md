@@ -2,7 +2,7 @@
 
 > DAGM2007 데이터셋 기반으로 클래스/결합 유무/결합 위치를 시각화하는 Python 도구
 
-![Visualizer Example](./example_image.png)
+![Visualizer Example](../example_image.png)
 
 ---
 
