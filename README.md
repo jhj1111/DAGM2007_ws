@@ -1,8 +1,14 @@
-# DAGM2007 Defect Visualizer 🔍
+# [DAGM2007 Datasets](.\DAGM_dataset/)
+
+> DAGM2007 데이터셋 저장소
+
+# [DAGM2007 Defect Visualizer](.\dagm_visualizer/)
 
 > DAGM2007 데이터셋 기반으로 클래스/결합 유무/결합 위치를 시각화하는 Python 도구
 
-![Visualizer Example](./example_image.png)
+# [DAGM2007 YOLO-segment Datasets](.\yoloseg_datasets/)
+
+> DAGM2007 YOLO-segment 학습용 데이터셋 저장소
 
 ---
 
@@ -37,7 +43,21 @@ DAGM2007/
 **파일 트리 준수**
 ---
 
-## 해당 파일 기능
+## Train 파일
+
+- google colab 환경 실행 추천
+
+### [DAGM2007_train.ipny](./DAGM2007_train.ipny)
+
+> 이미지 분류 모델 학습 파일(resnet)
+
+### [DAGM2007_YOLO_train.ipny](./DAGM2007_YOLO_train.ipny)
+
+> YOLO segmentation 모델 학습 파일(YOLOv8_segment)
+
+---
+
+## 기타 파일
 
 ### `add_zeros_2_filename.py`
 
@@ -58,65 +78,9 @@ pip install opencv-python pandas
 
 ---
 
-## 실행 예시
-
-```bash
-# bash
-# 랜덤 이미지 (정상/결합 선택)
-python main.py --random
-
-# 결합 이미지만 랜덤
-python main.py --random --defect
-
-# 특정 건 표시
-python main.py --class 1 --idx 23 --defect
-```
-```python
-# python
-# main.py
-class_idx = None        # DAGM2007 class
-idx = None              # idx.png
-defect = True           # 결함 이미지 선택(True: 불량 이미지만 출력, False: 정상/불량 랜덤 출력)
-random_select = None    # *.png 랜덤 선택
-
-# 랜덤 이미지 (정상/결합 선택)
-class_idx = None        
-idx = None              
-defect = False    
-random_select = True
-
-# 결합 이미지만 랜덤
-class_idx = None        
-idx = None              
-defect = True
-random_select = True
-
-# 특정 건 표시 ex) Class1_def/23.png
-class_idx = 1  
-idx = 23
-defect = True
-random_select = False
-```
-## 조작
-'q': 종료
-
-'s': 이미지 저장
-
-else: 다음 이미지(랜덤) 선택
-
----
-
-## 사용 기능
-
-* 데이터셋 개발 또는 연구용 시각화 도구
-* OOP 구조 + CLI 진입 지원
-* 시각화 시 결합은 ellipse 방식으로 표시
-
----
-
 ## 참고 링크
 
 * [DAGM 2007 Dataset](https://conferences.mpi-inf.mpg.de/dagm/2007/prizes.html)
-* OpenCV ellipse: [https://docs.opencv.org/4.x/dc/da5/tutorial\_py\_drawing\_functions.html](https://docs.opencv.org/4.x/dc/da5/tutorial_py_drawing_functions.html)
+* [Ultralatics Docs-segmnet](https://docs.ultralytics.com/ko/tasks/segment/#predict)
 
 ---
