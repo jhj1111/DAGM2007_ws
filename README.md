@@ -1,14 +1,14 @@
-# [DAGM2007 Datasets](.\DAGM_dataset/)
+# [DAGM2007 Datasets](./DAGM_dataset)
 
 > DAGM2007 데이터셋 저장소
 
-# [DAGM2007 Defect Visualizer](.\dagm_visualizer/)
+# [DAGM2007 Defect Visualizer](./dagm_visualizer)
 
 > DAGM2007 데이터셋 기반으로 클래스/결합 유무/결합 위치를 시각화하는 Python 도구
 
->[README](.\dagm_visualizer/README.md)
+>[README](./dagm_visualizer/README.md)
 
-# [DAGM2007 YOLO-segment Datasets](.\yoloseg_datasets/)
+# [DAGM2007 YOLO-segment Datasets](./yoloseg_datasets/)
 
 > DAGM2007 YOLO-segment 학습용 데이터셋 저장소
 
@@ -49,11 +49,11 @@ DAGM2007/
 
 - google colab 환경 실행 추천
 
-### [DAGM2007_train.ipny](./DAGM2007_train.ipny)
+### [DAGM2007_train.ipynb](./DAGM2007_train.ipynb)
 
 > 이미지 분류 모델 학습 파일(resnet)
 
-### [DAGM2007_YOLO_train.ipny](./DAGM2007_YOLO_train.ipny)
+### [DAGM2007_YOLO_train.ipynb](./DAGM2007_YOLO_train.ipynb)
 
 > YOLO segmentation 모델 학습 파일(YOLOv8_segment)
 
